@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sarah Duffield — Personal Training &amp; Nutrition Coaching</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,500;1,9..144,600&family=Karla:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #F5F0E6;
+    --bg-raised: #ECE4D2;
+    --ink: #2B2A25;
+    --ink-soft: #625C4C;
+    --olive: #6B7256;
+    --olive-deep: #4F5540;
+    --clay: #A56A4E;
+    --line: #D9D2C2;
+    --radius: 3px;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #232420;
+      --bg-raised: #2C2D27;
+      --ink: #ECE6D8;
+      --ink-soft: #B7B09C;
+      --olive: #A2AB84;
+      --olive-deep: #C6CBAB;
+      --clay: #CB8F6D;
+      --line: #43443A;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #232420;
+    --bg-raised: #2C2D27;
+    --ink: #ECE6D8;
+    --ink-soft: #B7B09C;
+    --olive: #A2AB84;
+    --olive-deep: #C6CBAB;
+    --clay: #CB8F6D;
+    --line: #43443A;
+  }
+
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: "Karla", -apple-system, "Segoe UI", sans-serif;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+  }
+  img, svg { max-width: 100%; }
+
+  .wrap {
+    max-width: 1080px;
+    margin: 0 auto;
+    padding: 0 32px;
+  }
+
+  /* ---- Header ---- */
+  header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 28px 32px;
+    max-width: 1080px;
+    margin: 0 auto;
+  }
+  .brand {
+    font-family: "Fraunces", Georgia, serif;
+    font-size: 1.25rem;
+    font-weight: 600;
+    letter-spacing: 0.01em;
+  }
+  nav { display: flex; align-items: center; gap: 28px; }
+  nav a {
+    color: var(--ink-soft);
+    text-decoration: none;
+    font-size: 0.95rem;
+  }
+  nav a:hover, nav a:focus-visible { color: var(--ink); }
+  .btn {
+    display: inline-block;
+    padding: 11px 22px;
+    border-radius: var(--radius);
+    background: var(--olive-deep);
+    color: var(--bg);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.95rem;
+    border: 1px solid var(--olive-deep);
+    transition: opacity 0.15s ease;
+  }
+  .btn:hover, .btn:focus-visible { opacity: 0.85; }
+  .btn-quiet {
+    background: transparent;
+    color: var(--ink);
+    border: 1px solid var(--line);
+  }
+  @media (max-width: 720px) {
+    nav .nav-links { display: none; }
+  }
+
+  /* ---- Hero ---- */
+  .hero {
+    display: grid;
+    grid-template-columns: 1.15fr 0.85fr;
+    gap: 56px;
+    align-items: center;
+    padding: 40px 0 88px;
+  }
+  .hero p.eyebrow {
+    color: var(--clay);
+    font-weight: 600;
+    margin: 0 0 18px;
+    font-size: 0.95rem;
+  }
+  .hero h1 {
+    font-family: "Fraunces", Georgia, serif;
+    font-style: italic;
+    font-weight: 500;
+    font-size: clamp(2.3rem, 4.6vw, 3.4rem);
+    line-height: 1.12;
+    margin: 0 0 8px;
+    position: relative;
+    display: inline-block;
+  }
+  .hero .underline {
+    display: block;
+    width: 100%;
+    max-width: 480px;
+    margin: -6px 0 22px;
+  }
+  .hero .lede {
+    max-width: 42ch;
+    font-size: 1.08rem;
+    color: var(--ink-soft);
+    margin: 0 0 30px;
+  }
+  .hero .cta-row { display: flex; gap: 14px; align-items: center; flex-wrap: wrap; }
+  .hero .cta-note { font-size: 0.88rem; color: var(--ink-soft); }
+  .hero-art { justify-self: center; opacity: 0.92; }
+
+  @media (max-width: 800px) {
+    .hero { grid-template-columns: 1fr; padding-bottom: 56px; }
+    .hero-art { order: -1; max-width: 240px; margin: 0 auto; }
+  }
+
+  /* single orchestrated entrance */
+  .hero > div:first-child { animation: rise 0.7s ease-out both; }
+  .hero-art { animation: rise 0.9s ease-out 0.1s both; }
+  @keyframes rise {
+    from { opacity: 0; transform: translateY(14px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .hero > div:first-child, .hero-art { animation: none; }
+  }
+
+  /* ---- Section shared ---- */
+  section { padding: 64px 0; border-top: 1px solid var(--line); }
+  .section-head {
+    font-size: 0.95rem;
+    color: var(--clay);
+    font-weight: 600;
+    margin: 0 0 10px;
+  }
+  h2 {
+    font-family: "Fraunces", Georgia, serif;
+    font-weight: 500;
+    font-size: clamp(1.6rem, 2.6vw, 2.1rem);
+    margin: 0 0 40px;
+    max-width: 30ch;
+  }
+
+  /* ---- Focus areas ---- */
+  .focus-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0;
+  }
+  .focus-grid > div {
+    padding: 4px 28px 4px 0;
+    border-left: 1px solid var(--line);
+    padding-left: 24px;
+  }
+  .focus-grid > div:first-child { border-left: none; padding-left: 0; }
+  .focus-grid h3 {
+    font-family: "Fraunces", Georgia, serif;
+    font-weight: 500;
+    font-size: 1.2rem;
+    margin: 0 0 10px;
+  }
+  .focus-grid p { color: var(--ink-soft); margin: 0; font-size: 0.98rem; }
+  @media (max-width: 720px) {
+    .focus-grid { grid-template-columns: 1fr; gap: 28px; }
+    .focus-grid > div { border-left: none; padding-left: 0; border-top: 1px solid var(--line); padding-top: 24px; }
+    .focus-grid > div:first-child { border-top: none; padding-top: 0; }
+  }
+
+  /* ---- About ---- */
+  .about {
+    display: grid;
+    grid-template-columns: 0.85fr 1.15fr;
+    gap: 56px;
+    align-items: start;
+  }
+  .about-portrait {
+    aspect-ratio: 4/5;
+    background: var(--bg-raised);
+    border-radius: var(--radius);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .about-portrait span {
+    font-family: "Fraunces", Georgia, serif;
+    font-style: italic;
+    font-size: 3.2rem;
+    color: var(--olive);
+  }
+  .about p { color: var(--ink-soft); max-width: 56ch; }
+  .about p.lead { color: var(--ink); font-size: 1.08rem; }
+  .credentials { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 22px; }
+  .credentials span {
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    padding: 6px 14px;
+    font-size: 0.88rem;
+    color: var(--ink-soft);
+  }
+  @media (max-width: 800px) {
+    .about { grid-template-columns: 1fr; }
+    .about-portrait { max-width: 220px; }
+  }
+
+  /* ---- Pricing ---- */
+  .pricing-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+  }
+  .plan {
+    border-top: 1px solid var(--line);
+    padding-top: 22px;
+  }
+  .plan.featured { border-top: 2px solid var(--olive); }
+  .plan .note {
+    font-size: 0.82rem;
+    color: var(--clay);
+    font-weight: 600;
+    margin: 0 0 6px;
+    height: 1em;
+  }
+  .plan h3 {
+    font-family: "Fraunces", Georgia, serif;
+    font-weight: 500;
+    font-size: 1.15rem;
+    margin: 0 0 4px;
+  }
+  .plan .price {
+    font-family: "Fraunces", Georgia, serif;
+    font-size: 1.9rem;
+    margin: 6px 0 16px;
+  }
+  .plan .price small { font-family: "Karla", sans-serif; font-size: 0.9rem; color: var(--ink-soft); }
+  .plan ul { list-style: none; margin: 0 0 22px; padding: 0; color: var(--ink-soft); font-size: 0.95rem; }
+  .plan li { padding: 5px 0; border-bottom: 1px dashed var(--line); }
+  .plan li:last-child { border-bottom: none; }
+  @media (max-width: 800px) {
+    .pricing-grid { grid-template-columns: 1fr; gap: 40px; }
+  }
+
+  /* ---- Contact / footer ---- */
+  .contact {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 24px;
+  }
+  .contact h2 { margin-bottom: 12px; }
+  .contact p { color: var(--ink-soft); max-width: 40ch; margin: 0 0 24px; }
+  footer {
+    border-top: 1px solid var(--line);
+    padding: 26px 0 40px;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 10px;
+    font-size: 0.85rem;
+    color: var(--ink-soft);
+  }
+  footer a { color: var(--ink-soft); }
+
+  a { color: inherit; }
+  a:focus-visible, button:focus-visible { outline: 2px solid var(--olive); outline-offset: 2px; }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="brand">Sarah Duffield</div>
+  <nav>
+    <div class="nav-links">
+      <a href="#focus">Focus</a>
+      <a href="#about" style="margin-left:24px;">About</a>
+      <a href="#pricing" style="margin-left:24px;">Pricing</a>
+    </div>
+    <a class="btn" style="margin-left:24px;" href="https://calendly.com/sarahduffieldcoaching/30min" target="_blank" rel="noopener">Book a free consult</a>
+  </nav>
+</header>
+
+<div class="wrap">
+
+  <section class="hero" style="border-top:none; padding-top:8px;">
+    <div>
+      <p class="eyebrow">Personal Training &amp; Nutrition Coaching</p>
+      <h1>Strong in every season.</h1>
+      <svg class="underline" viewBox="0 0 480 14" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <path d="M2 10 C 60 2, 120 2, 180 8 C 240 14, 300 2, 360 6 C 400 9, 440 4, 478 8"
+              fill="none" stroke="var(--clay)" stroke-width="2.5" stroke-linecap="round"/>
+      </svg>
+      <p class="lede">One-on-one coaching from Sarah Duffield, CPT, PN — built around your goals, your schedule, and how you actually eat and move.</p>
+      <div class="cta-row">
+        <a class="btn" href="https://calendly.com/sarahduffieldcoaching/30min" target="_blank" rel="noopener">Book a free consult</a>
+        <a class="btn btn-quiet" href="#pricing">See pricing</a>
+      </div>
+    </div>
+    <div class="hero-art">
+      <svg viewBox="0 0 220 260" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <path d="M110 20 C 60 40, 40 90, 60 140 C 75 175, 60 210, 40 240" fill="none" stroke="var(--olive)" stroke-width="2"/>
+        <path d="M110 20 C 160 40, 180 90, 160 140 C 145 175, 160 210, 180 240" fill="none" stroke="var(--olive)" stroke-width="2"/>
+        <path d="M110 20 L 110 230" fill="none" stroke="var(--clay)" stroke-width="2" stroke-dasharray="3 6"/>
+        <circle cx="110" cy="20" r="6" fill="var(--clay)"/>
+        <circle cx="60" cy="140" r="4" fill="var(--olive)"/>
+        <circle cx="160" cy="140" r="4" fill="var(--olive)"/>
+        <circle cx="40" cy="240" r="4" fill="var(--olive)"/>
+        <circle cx="180" cy="240" r="4" fill="var(--olive)"/>
+      </svg>
+    </div>
+  </section>
+
+  <section id="focus">
+    <p class="section-head">Focus areas</p>
+    <h2>Three things every plan is built on.</h2>
+    <div class="focus-grid">
+      <div>
+        <h3>Experience</h3>
+        <p>Both mine and yours. We won't start you somewhere you're not ready to be, but I'll push you to expand towards your goals and a future you that feels good.</p>
+      </div>
+      <div>
+        <h3>Sustainability</h3>
+        <p>Everyone's life looks drastically different. Our focus will be practical habits that fit your life, not the other way around.</p>
+      </div>
+      <div>
+        <h3>Research</h3>
+        <p>I'll tailor your plan with the leading ideas in health by incorporating the most up-to-date, peer-reviewed research available.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="about">
+    <p class="section-head">About</p>
+    <h2>Meet Sarah.</h2>
+    <div class="about">
+     <div class="about-portrait">
+  <img src="images/IMG_4218.jpeg" alt="Sarah Duffield" style="width:100%; height:100%; object-fit:cover; border-radius:3px;">
+</div>
+      <div>
+        <p class="lead">Welcome in! I'm so excited you're here.</p>
+        <p>I've been highly involved in physical activity and nutrition for a long time, from being a young ballerina to Division I tennis player, to getting a bachelor's in Exercise & Wellness to a personal fitness coach. I'm now a master's student of Public Health and first-time mom. Each chapter has brought new growth and difficulties and I've had my fair share of hormone swings, lack of motivation, and morning sickness to make taking care of my body as a woman even more exciting.</p>
+        <p>I specialize in reproductive health and want everyone I work with to walk away feeling at home in their body. Activity and taking care of YOU looks different for everyone, and what a fun journey it is to figuring out what that looks like through every stage of life! My approach starts with a conversation: what you're working with, what's worked before, and what hasn't. From there we'll build a plan around your actual life - your schedule, your equipment, your kitchen, your history with food and movement - rather than asking you to fit yourself around a program.</p>
+        <div class="credentials">
+          <span>CPT — Certified Personal Trainer</span>
+          <span>PN1 — Certified Nutrition Coach</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="pricing">
+    <p class="section-head">Pricing</p>
+    <h2>Coaching plans.</h2>
+    <div class="pricing-grid">
+      <div class="plan">
+        <p class="note">&nbsp;</p>
+        <h3>Nutrition Coaching</h3>
+        <div class="price">$70 <small>/ month</small></div>
+        <ul>
+          <li>Three 15-minute check-in sessions</li>
+          <li>One 30-minute goal-setting session</li>
+          <li>Joint progress tracking</li>
+        </ul>
+        <a class="btn" href="https://calendly.com/sarahduffieldcoaching/30min" target="_blank" rel="noopener">Book a free consult</a>
+      </div>
+      <div class="plan">
+        <p class="note">&nbsp;</p>
+        <h3>Personal Training</h3>
+        <div class="price">$100 <small>/ month</small></div>
+        <ul>
+          <li>Customized workout programs based on your goals, abilities, and equipment access</li>
+          <li>Monthly video feedback on form</li>
+          <li>Weekly check-ins via text or email</li>
+        </ul>
+        <a class="btn" href="https://calendly.com/sarahduffieldcoaching/30min" target="_blank" rel="noopener">Book a free consult</a>
+      </div>
+      <div class="plan">
+        <p class="note">&nbsp;</p>
+        <h3>Full Coaching</h3>
+        <div class="price">$140 <small>/ month</small></div>
+        <ul>
+          <li>Everything in Nutrition Coaching and Personal Training packages</li>
+          <li>Additional 15~30-minute session to review personal training goals</li>
+          <li>Priority scheduling for sessions and feedback</li>
+        </ul>
+        <a class="btn" href="https://calendly.com/sarahduffieldcoaching/30min" target="_blank" rel="noopener">Book a free consult</a>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="contact">
+      <div>
+        <p class="section-head">Get started</p>
+        <h2>Let's talk about your goals.</h2>
+        <p>Free 20-minute consult — no commitment, just a conversation about where you're starting and what coaching could look like.</p>
+        <a class="btn" href="https://calendly.com/sarahduffieldcoaching/30min" target="_blank" rel="noopener">Book a free consult</a>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<footer>
+  <div class="wrap" style="display:flex; justify-content:space-between; flex-wrap:wrap; gap:10px; width:100%; max-width:1080px; margin:0 auto; padding:0 32px;">
+    <span>© 2026 Sarah Duffield</span>
+    <span><a href="mailto:sarahduffieldcoaching@gmail.com">sarahduffieldcoaching@gmail.com</a></span>
+  </div>
+</footer>
+
+</body>
+</html>
